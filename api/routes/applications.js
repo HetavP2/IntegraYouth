@@ -6,23 +6,27 @@ const router = express.Router();
 router.post('/', async (req, res) => {
     try {
         if (
-            !req.body.id ||
-            !req.body.firstName ||
-            !req.body.lastName ||
-            !req.body.email ||
-            !req.body.roleApplyingFor
+          !req.body.id ||
+          !req.body.firstName ||
+          !req.body.lastName ||
+          !req.body.email ||
+          !req.body.subjects ||
+          !req.body.roleApplyingFor
         ) {
-            return res.status(400).send({
-                message: "send all required fields!"
-            });
+          return res.status(400).send({
+            message: "send all required fields!",
+          });
         } 
         const newApplication = {
-            _id: req.body.id, 
-            firstName: req.body.firstName, 
-            lastName: req.body.lastName,
-            email: req.body.email,
-            roleApplyingFor: req.body.roleApplyingFor
-        }
+          _id: req.body.id,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email,
+          subjects: req.body.subjects,
+          availability: req.body.availability,
+          comments: req.body.comments,
+          roleApplyingFor: req.body.roleApplyingFor,
+        };
         const application = await Applications.create(newApplication);
         return res.status(201).send(application);
     } catch (error) {

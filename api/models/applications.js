@@ -21,6 +21,18 @@ const applicationsSchema = new Schema(
         }, roleApplyingFor: {
             type: String,
             required: true,
+        },
+        subjects: {
+            type: Array,
+            required: true,
+        },
+        availability: {
+            type: Object,
+            required: false,
+        },
+        comments: {
+            type: String,
+            required: false,
         }
     }, { timestamps: true })
 

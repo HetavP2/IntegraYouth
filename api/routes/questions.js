@@ -68,22 +68,22 @@ router.get('/tutee', async (req, res) => {
 
 });
 
-//DELETE APPLICATION
-// router.delete('/:id', async (req, res) => {
-//     try {
-//         const { id } = req.params;
-//         const result = await Applications.findByIdAndDelete(id);
+// DELETE APPLICATION
+router.delete('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const result = await Questions.findByIdAndDelete(id);
 
-//         if (!result) {
-//             return res.status(404).json({message: "Application Not Found"})
-//         }
-//         return res.status(200).send({message: "Application Deleted Successfully!"})
+        if (!result) {
+            return res.status(404).json({message: "Question Not Found"})
+        }
+        return res.status(200).send({message: "Question Deleted Successfully!"})
 
-//     } catch (error) {
-//         console.log(error.message);
-//         res.status(500).send({message: error.message})
-//     }
-// })
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({message: error.message})
+    }
+})
 
 
 export default router;
