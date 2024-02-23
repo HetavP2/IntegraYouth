@@ -11,7 +11,8 @@ router.post('/', async (req, res) => {
           !req.body.lastName ||
           !req.body.email ||
           !req.body.subjects ||
-          !req.body.roleApplyingFor
+            !req.body.roleApplyingFor ||
+            !req.body.phoneNumber 
         ) {
           return res.status(400).send({
             message: "send all required fields!",
@@ -25,7 +26,8 @@ router.post('/', async (req, res) => {
           subjects: req.body.subjects,
           availability: req.body.availability,
           comments: req.body.comments,
-          roleApplyingFor: req.body.roleApplyingFor,
+            roleApplyingFor: req.body.roleApplyingFor,
+          phoneNumber: req.body.phoneNumber,
         };
         const application = await Applications.create(newApplication);
         return res.status(201).send(application);

@@ -2,39 +2,47 @@ import mongoose, { Schema } from "mongoose";
 import { v4 as uuidv4, validate as uuidValidate } from "uuid";
   
 const applicationsSchema = new Schema(
-    {
-        _id: {
-            type: mongoose.Schema.Types.UUID,
-            default: () => uuidv4(),
-            required: true
-        },
-        firstName: {
-            type: String,
-            required: true,
-        },
-        lastName: {
-            type: String,
-            required: true,
-        }, email: {
-            type: String,
-            required: true,
-        }, roleApplyingFor: {
-            type: String,
-            required: true,
-        },
-        subjects: {
-            type: Array,
-            required: true,
-        },
-        availability: {
-            type: Object,
-            required: false,
-        },
-        comments: {
-            type: String,
-            required: false,
-        }
-    }, { timestamps: true })
+  {
+    _id: {
+      type: mongoose.Schema.Types.UUID,
+      default: () => uuidv4(),
+      required: true,
+    },
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    roleApplyingFor: {
+      type: String,
+      required: true,
+    },
+    subjects: {
+      type: Array,
+      required: true,
+    },
+    availability: {
+      type: Object,
+      required: false,
+    },
+    comments: {
+      type: String,
+      required: false,
+    },
+    phoneNumber: {
+      type: Number,
+      required: true,
+    }
+  },
+  { timestamps: true }
+);
 
 export const Applications = mongoose.models.Applications || mongoose.model("Applications", applicationsSchema);
 

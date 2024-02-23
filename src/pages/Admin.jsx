@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function StyledApplicationInfo() {
+export default function Admin() {
   const [applications, setApplications] = useState([]);
 
   useEffect(() => {

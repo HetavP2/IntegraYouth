@@ -18,7 +18,9 @@ export default function DisplayQuestions() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5555/questions/${id}`);
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND_ORIGIN}/questions/${id}`
+      );
       // Update the state to reflect the deletion
       setAllQuestions((questions) => questions.filter((q) => q._id !== id));
       console.log(`Question with ID ${id} deleted successfully.`);
