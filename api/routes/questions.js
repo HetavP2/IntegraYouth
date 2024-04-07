@@ -72,6 +72,7 @@ router.get('/tutee', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params;
+        
         const result = await Questions.findByIdAndDelete(id);
 
         if (!result) {
